@@ -1,4 +1,6 @@
-
+let $ = function(id) {
+  return document.getElementById(id);
+}
 
 
 //* testing my skills
