@@ -14,3 +14,14 @@
 - control statements
 - arrays
 - functions
+
+## Chapter 3
+- DOM scripting properties and methods
+- node interface
+- email list application
+- FAQs application
+- DOM scripting skills for links and images
+- how to pre-load images
+- image swap application
+- using timers
+- slide show application

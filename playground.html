@@ -3,9 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .one {
+      color: red;
+    }
+
+    #list li {
+      display: inline;
+      padding-right: 20px;
+    }
+  </style>
   <title>Playground</title>
 </head>
 <body>
+  <h1 id="heading" class="one two three"></h1>
   <script src="playground.js"></script>
+
+  <ul id="list">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+  <script>
+    document.getElementById('heading').textContent = 'Hello world';
+    console.log(document.getElementById('heading').getAttribute('class'));
+    document.getElementById('heading').removeAttribute('class')
+  </script>
 </body>
 </html>
