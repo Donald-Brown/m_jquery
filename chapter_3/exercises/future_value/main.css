@@ -26,3 +26,5 @@ input {
   margin-bottom: 0.5em;
   width: 12em;
 }
+
+span { color: red; }
