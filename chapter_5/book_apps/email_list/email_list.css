@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  background-color: #fff;
+  margin: 2em auto;
+  width: 650px;
+  padding: 0 2em 1em;
+  border: 3px solid blue;
+}
+
+h1 {
+  color: blue;
+}
+
+label {
+  float: left;
+  width: 11em;
+  text-align: right;
+}
+
+input {
+  width: 12em;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+
+span {
+  color: red;
+}
