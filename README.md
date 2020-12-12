@@ -38,3 +38,7 @@
 - email list app
 - working with subset of selectors, methods, and event methods
 - 3 illustrative apps
+
+## Chapter 6 - how to use effects and animations
+- how to use effects 
+- how to use animations

@@ -28,7 +28,7 @@
               </li>
               <li>
                 <p>Adjacent siblings: all div elements that are adjacent siblings of the h2 elements.</p>
-                <pre><code class="language-js">$('h2 div')</code></pre>
+                <pre><code class="language-js">$('h2 + div')</code></pre>
               </li>
               <li>
                 <p>General siblings: all &lt;p&gt; elements that are siblings of ul elements.</p>
@@ -235,7 +235,42 @@ $(':text').dblclick(function() {
 }); // end dblclick 
 </code></pre>
           </li>
-          
+        </ul>
+      </section>
+      <hr>
+      <section id="effects_animations">
+        <h2>How to use effects and animations</h2>
+        <ul>
+          <li>
+            <h3>basic methods for jQuery effects</h3>
+            <ul>
+              <li><strong>show()</strong> - display the selected elements from upper left to lower right</li>
+              <li><strong>hide()</strong> - hide the selected elements from lower right to upper left</li>
+              <li><strong>toggle()</strong> - display or hide the selected elements</li>
+              <li><strong>slideDown()</strong> - display the selected elements in a sliding motion</li>
+              <li><strong>slideUp()</strong> - hide the selected elements in a sliding motion</li>
+              <li><strong>slideToggle()</strong> - display or hide the selected elements with a sliding motion</li>
+              <li><strong>fadeIn()</strong> - display the selected elements by fading them into opaque</li>
+              <li><strong>fadeOut()</strong> - hide the selected elements by fading them out to transparent</li>
+              <li><strong>fadeToggle()</strong> - display or hide the fading them in or out</li>
+              <li><strong>fadeTo()</strong> - adjust the opaicty property of the selected elements to the opacity set by the second parameter. With this method, the duration parameter must be specified</li>
+            </ul>
+            <pre><code class="lang-js">
+//* basic syntax for all of the methods except the fadeTo method
+//* methodName( [duration][, callback]);
+$('#startup_message').fadeOut(5000).slideDown(1000);
+
+//* basic syntax for the fadeTo method
+//* fadeTo(duration, opacity[, callback]);
+$('#number2').fadeTo(5000, .2).fadeTo(1000, 1); // chaining is the preferred way
+$('#number2').fadeTo(5000, .2, 
+  function() {
+    $(this).fadeTo(1000, 1);
+  }
+);
+            </code></pre>
+          </li>
+
         </ul>
       </section>
   </header>

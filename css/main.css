@@ -2,8 +2,9 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  margin-bottom: 3em;
 }
 
-#basics ul ul li {
+#basics ul ul li, #effects_animations ul ul li {
   margin-bottom: 0.5em;
 }
