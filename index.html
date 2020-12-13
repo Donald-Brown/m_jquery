@@ -270,6 +270,52 @@ $('#number2').fadeTo(5000, .2,
 );
             </code></pre>
           </li>
+          <li>
+            <h3>How to use animations</h3>
+            <pre><code class="lang-js">
+//* basic syntax for animations
+//* animate({properties}[, duration][, callback]);
+$('#faqs h1').animate(
+  { fontSize: '275%', opacity: 1, left: 0 }, // the property map
+  2000
+); // end animate
+
+// example with callback
+$('#faqs h1').animate(
+  { fontSize: '275%', opacity: 1, left: '+=175' }, 
+  2000,
+  function() {
+    $('#faqs h2').next().fadeIn(1000).fadeOut(1000);
+  }
+); // end animate
+            </code></pre>
+          </li>
+          <li>
+            <h3>The delay, swap, and finish methods</h3>
+            <ul>
+              <li><strong>delay(duration)</strong> - delay the start of the next animation in queue</li>
+              <li><strong>stop([clearQueue][, jumpToEnd])</strong> - Stop the current animation for the selected element. the two parameters are boolean with false default values. If set to true, the first parameter clears the queue so no additional animations run. The second parameter causes the current animation to be completed immediately</li>
+              <li><strong>finish([queue])</strong> - Stop the animation for the selected element, clear the queue, and complete all animations for the selected elements</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Using Easings</h3>
+            <pre><code class="lang-js">
+//* basic syntax for using easing for basic methods except fadeTo method
+methodName([duration][, easing][, callback]);
+
+//* syntax for the fadeTo method
+fateTo(duration, opacity[, easing][, callback]);
+
+//* syntax for basic animate method
+animate({ properties }[, duration][, easing][, callback]);
+            </code></pre>
+          </li>
+          <li>
+            <h3>Advaced syntax for animate and queue methods</h3>
+            <p>Be aware that there is an advaced syntax for the animate method that includes options</p>
+            <p>Also there are methods for working with the animation queue if they are ever needed</p>
+          </li>
 
         </ul>
       </section>
