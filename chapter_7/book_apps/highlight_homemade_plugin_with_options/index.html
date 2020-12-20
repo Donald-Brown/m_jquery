@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #vecta_menu li {
+      list-style: none;
+      margin-bottom: 15px;
+    }
+    #vecta_menu li a {
+      display: block;
+      padding: 10px;
+    }
+  </style>
+  <title>jQuery Highlight Menu Plug-in - homemade</title>
+</head>
+<body>
+  <ul id="vecta_menu">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="contactus.html">Contact Us</a></li>
+  </ul>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="jquery.highlight.js"></script>
+  <script>
+    $(function() {
+      $('#vecta_menu').highlightMenu({
+        bgColor: '#dfe3e6',
+        color: '#cc1c0d',
+        hoverBgColor: '#000',
+        hoverColor: '#fff', 
+        linkWidth: '300px'
+      });
+    }); // end ready
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bxSlider styles -->
+  <link rel="stylesheet" href="jquery.bxslider.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" integrity="sha512-UBY4KATrDAEKgEEU+RAfY4yWrK0ah43NGwNr5o/xmncxsT+rv8jp7MI3a00I0Ep3NbAx05U5kw3DvyNCoz+Wcw==" crossorigin="anonymous" /> -->
+  <!-- main Style sheet -->
+  <link rel="stylesheet" href="main.css">
+  <title>bxslider</title>
+</head>
+<body>
+  <main>
+    <h1>About Us</h1>
+    <p>On June 6th, 2012, Vecta Corp. moved into its new 4 story, 35,000 square foot facility. Below are a few pictures of the facility.</p>
+    <ul id="slider">
+      <li>
+        <img src="images/building_01.jpg" alt="" title="front">
+      </li>
+      <li>
+        <img src="images/building_02.jpg" alt="" title="left side">
+      </li>
+      <li>
+        <img src="images/building_03.jpg" alt="" title="rear">
+      </li>
+      <li>
+        <img src="images/building_04.jpg" alt="" title="offices">
+      </li>
+      <li>
+        <img src="images/building_05.jpg" alt="" title="conference room">
+      </li>
+    </ul>
+  </main>
+  
+  <!-- jQuery Library -->
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <!-- bxSlider plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous"></script>
+  <!-- call to bxSlider function -->
+  <script>
+    $(function() {
+      $('#slider').bxSlider({
+        auto: true,
+        autoControls: true,
+        captions: true, 
+        minSlides: 2, 
+        maxSlides: 2, 
+        slideWidth: 250,
+        slideMargin: 10
+      }); // end bxSlider
+    }); // end ready
+  </script>
+</body>
+</html>

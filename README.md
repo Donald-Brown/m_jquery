@@ -42,3 +42,9 @@
 ## Chapter 6 - how to use effects and animations
 - how to use effects 
 - how to use animations
+
+## Chapter 7 - how to create and use jQuery plugins
+- intro to plugins
+- three of the most useful plugins
+- creating your own plugins
+- using plugins
