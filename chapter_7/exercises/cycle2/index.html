@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- main css reference -->
+  <link rel="stylesheet" href="cycle2.css">
+  <title>Cycle Plugin</title>
+</head>
+<body>
+  <main>
+    <h1>About Us</h1>
+    <p>
+      On June 6th, 2012, Vecta Corp. moved into its new 4 story, 35,000 square foot facility. Below are a few pictures of the new facility.
+    </p>
+    <div class="cycle-slideshow" data-cycle-fx="fadeout"
+    data-cycle-prev="#prev" data-cycle-next="#next" data-option-speed="1000" data-cycle-timeout="0" data-cycle-caption="#adv-custom-caption" data-cycle-caption-template="Slide{{slideNum}}: {{cycleTitle}}">
+      <img src="../../../images/buildings/building_01.jpg" alt="" data-cycle-title="front">
+      <img src="../../../images/buildings/building_02.jpg" alt="" data-cycle-title="left side">
+      <img src="../../../images/buildings/building_03.jpg" alt="" data-cycle-title="back">
+      <img src="../../../images/buildings/building_04.jpg" alt="" data-cycle-title="office">
+      <img src="../../../images/buildings/building_05.jpg" alt="" data-cycle-title="conference room">
+          <!-- prev/next links -->
+      <div class=center>
+        <span id=prev>&lt;&lt;Prev </span>
+        <span id=next> Next&gt;&gt;</span>
+      </div>
+      <!-- empty element for the caption -->
+      <div id="adv-custom-caption"></div>
+    </div>
+  </main>
+  
+  <!-- reference to jQuery library -->
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <!-- reference to jQuery cycle Plugin -->
+  <script src="http://malsup.github.io/min/jquery.cycle2.min.js"></script>
+</body>
+</html>
