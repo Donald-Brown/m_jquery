@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="member.css">
+  <title>Membership Signup</title>
+</head>
+<body>
+  <main>
+    <h1>Membership form</h1>
+    <form action="register.html" method="get" name="member_form" id="member_form">
+      <fieldset>
+        <legend>Registration Information</legend>
+        <label for="email">Email Address:</label>
+        <input type="text" id="email" name="email" autofocus autocomplete="false"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="At lease 6 characters" autocomplete="false"><br>
+        <label for="verify">Verify Password:</label>
+        <input type="password" id="verify" name="verify" autocomplete="false"><br>
+      </fieldset>
+      <fieldset>
+        <legend>Member Information</legend>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name"><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name"><br>
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" placeholder="2-character code"><br>
+        <label for="zip">Zip Code:</label>
+        <input type="text" id="zip" name="zip" placeholder="99999 or 99999-9999 format"><br>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" placeholder="999-999-9999"><br>
+      </fieldset>
+      <fieldset>
+        <legend>Payment Information</legend>
+        <label for="start_date">Requested Start Date:</label>
+        <input type="text" id="start_date" name="start_date" placeholder="99/99/9999"><br>
+        <label for="cc_type">Credit Card Type:</label>
+        <select name="cc_type" id="cc_type">
+          <option value="v">Visa</option>
+          <option value="m">Master Card</option>
+          <option value="x">American Express</option>
+        </select><br>
+        <label for="card_number">Credit Card Number:</label>
+        <input type="text" id="card_number" name="card_number"><br>
+        <label for="exp_date">Experation Date:</label>
+        <select name="exp_month" id="exp_month">
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <select name="exp_year" id="exp_year">
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select><br>
+      </fieldset>
+      <fieldset id="buttons">
+        <legend>Submit Your Membership</legend>
+        <label>&nbsp;</label>
+        <input type="submit" id="submit" value="submit">
+        <input type="reset" id="reset" value="Reset">
+      </fieldset>
+    </form>
+  </main>
+  
+  <script src="../../js/jquery-3.5.1.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/additional-methods.min.js"></script>
+  <script src="js/member.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submitted Form</title>
+</head>
+<body>
+  <h1>Your form has been submitted</h1>
+  <div>&nbsp;Hi</div>
+  <script>
+    const address = location.href;
+    const div = document.querySelector('div');
+    let newAddress = address.slice(address.indexOf('?') + 1);
+    let addressArr = newAddress.split('&');
+    let emailPart = addressArr[0].slice(addressArr[0].indexOf('=') + 1);
+    emailPart = emailPart.replace('%40', '@');
+    console.log(addressArr[1]);
+    let namePart = addressArr[1].slice(addressArr[1].indexOf('=') + 1);
+    namePart = namePart.substr(0 , 1).toUpperCase() +  namePart.substr(1);
+
+    onload = function() {
+      div.innerHTML = `email = ${emailPart} <br> name = ${namePart}`;
+    }
+  </script>
+</body>
+</html>

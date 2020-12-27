@@ -13,201 +13,203 @@
   <header>
     <h1>jQuery Selectors, Methods, and Event Methods</h1>
     <p>by: Donald Brown</p>
-      <section id="basics">
-        <h2>jQuery Basics</h2>
-        <ul>
-          <li>
-            <h3>Using jQuery Selectors</h3>
-            <p>Start by coding the dollar sign ($) to reference the jQuery library. Then in parenthesis code the css selector(s) in quotation marks. The selectors can be elements, ids, classes. The following are how to select elements by relationship.</p>
-            <ul>
-              Selecting by relationship
-              <li>
-                <p>Descendants: All &lt;p&gt; elements that are decendants of the element with the id notes. <br>
-                <pre><code class="language-js">$('#notes p')</code></pre>
-                </p>
-              </li>
-              <li>
-                <p>Adjacent siblings: all div elements that are adjacent siblings of the h2 elements.</p>
-                <pre><code class="language-js">$('h2 + div')</code></pre>
-              </li>
-              <li>
-                <p>General siblings: all &lt;p&gt; elements that are siblings of ul elements.</p>
-                <pre><code class="language-js">$('ul ~ p')</code></pre>
-              </li>
-              <li>
-                <p>Children: all ul elements that are children of div elements.</p>
-                <pre><code class="language-js">$('div > ul')</code></pre>
-              </li>
-            </ul>
-            <ul>
-              Coding multiple Selectors
-              <li><pre><code class="language-js">$('#notes li, div p')</code></pre></li>
-              <li><pre><code class="language-js">$('p + ul, div ~ p')</code></pre></li>
-            </ul>
-          </li>
-          <li>
-            <h3>Calling jQuery methods</h3>
-            <pre><code class="language-js">$('selector').methodName(parameters)[.methodName(parameters)]...</code></pre>
-            <ul>
-              <p>Common jQuery methods</p>
-              <li>val() gets value of form control</li>
-              <li>val(value) sets value of form control</li>
-              <li>text() gets the text of an element</li>
-              <li>text(value) sets the text of an element</li>
-              <li>next([type]) get the next sibling of an element or the next sibling of a specified type if coded</li>
-              <li>submit() submit the selected form</li>
-              <li>focus() move the focus to the selected form control or link</li>
-            </ul>
-          </li>
-          <li>
-            <h3>Using jQuery event methods</h3>
-            <ul>
-              <p>Two ways to code the ready event</p>
-              <li>
-                Long form: 
+  </header>
+  <main>
+    <section id="basics">
+      <h2>jQuery Basics</h2>
+      <ul>
+        <li>
+          <h3>Using jQuery Selectors</h3>
+          <p>Start by coding the dollar sign ($) to reference the jQuery library. Then in parenthesis code the css selector(s) in quotation marks. The selectors can be elements, ids, classes. The following are how to select elements by relationship.</p>
+          <ul>
+            Selecting by relationship
+            <li>
+              <p>Descendants: All &lt;p&gt; elements that are decendants of the element with the id notes. <br>
+              <pre><code class="language-js">$('#notes p')</code></pre>
+              </p>
+            </li>
+            <li>
+              <p>Adjacent siblings: all div elements that are adjacent siblings of the h2 elements.</p>
+              <pre><code class="language-js">$('h2 + div')</code></pre>
+            </li>
+            <li>
+              <p>General siblings: all &lt;p&gt; elements that are siblings of ul elements.</p>
+              <pre><code class="language-js">$('ul ~ p')</code></pre>
+            </li>
+            <li>
+              <p>Children: all ul elements that are children of div elements.</p>
+              <pre><code class="language-js">$('div > ul')</code></pre>
+            </li>
+          </ul>
+          <ul>
+            Coding multiple Selectors
+            <li><pre><code class="language-js">$('#notes li, div p')</code></pre></li>
+            <li><pre><code class="language-js">$('p + ul, div ~ p')</code></pre></li>
+          </ul>
+        </li>
+        <li>
+          <h3>Calling jQuery methods</h3>
+          <pre><code class="language-js">$('selector').methodName(parameters)[.methodName(parameters)]...</code></pre>
+          <ul>
+            <p>Common jQuery methods</p>
+            <li>val() gets value of form control</li>
+            <li>val(value) sets value of form control</li>
+            <li>text() gets the text of an element</li>
+            <li>text(value) sets the text of an element</li>
+            <li>next([type]) get the next sibling of an element or the next sibling of a specified type if coded</li>
+            <li>submit() submit the selected form</li>
+            <li>focus() move the focus to the selected form control or link</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Using jQuery event methods</h3>
+          <ul>
+            <p>Two ways to code the ready event</p>
+            <li>
+              Long form: 
 <pre><code class="language-js">
 $(document).ready(function() {
-  alert('the DOM is ready');
+alert('the DOM is ready');
 }); // end of ready event
 </code></pre>
-              </li>
-              <li>
-                Short form: 
+            </li>
+            <li>
+              Short form: 
 <pre><code class="language-js">
 $(function() {
-  alert('the DOM is ready') // (document).ready is assumed
+alert('the DOM is ready') // (document).ready is assumed
 }); // end of ready event
 </code></pre>
-              </li>
-              <li>
-                A click event for all h2's in the ready event
+            </li>
+            <li>
+              A click event for all h2's in the ready event
 <pre><code class="lang-js">
 $(document).ready(function() {
-  $('h2').click(function() {
-    alert('This heading has been clicked');
-  });    // end of click event handler
+$('h2').click(function() {
+  alert('This heading has been clicked');
+});    // end of click event handler
 });      // end of ready event handler
 
 // or
 $(function() {
-  $('h2').click(function() {
-    alert('This heading has been clicked');
-  });    // end of click event handler
+$('h2').click(function() {
+  alert('This heading has been clicked');
+});    // end of click event handler
 });    
 </code></pre>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h3>Some of the most useful jQuery selectors</h3>
-            <ul>
-              <li><strong>[attribute]</strong> - All elements with the named attribute</li>
-              <li><strong>[attribute=value]</strong> - All elements with the named attribute and value</li>
-              <li><strong>:contains(text)</strong> - All elements that contain the specified text</li>
-              <li><strong>:empty</strong> - All elements with no children including text nodes</li>
-              <li><strong>:eq(n)</strong> - The element with the index n within the selected set</li>
-              <li><strong>:even</strong> - All elements with an even index within the selected set</li>
-              <li><strong>:first</strong> - The first element within the selected set</li>
-              <li><strong>:first-child</strong> - All elements that are first children of their parent elements</li>
-              <li><strong>:gt(n)</strong> - All elements within the selected set that have an index greater than n</li>
-              <li><strong>:has(selector)</strong> - All elements that contain the element specified by the selector</li>
-              <li><strong>:header</strong> - All elements that are headers (h1,h2,...)</li>
-              <li><strong>:hidden</strong> - All elements that are hidden</li>
-              <li><strong>:last</strong> - The last element within the selected set</li>
-              <li><strong>:last-child</strong> - All elements that are last children of their parent elements</li>
-              <li><strong>:lt(n)</strong> - All elements within the selected set that have an index less than n</li>
-              <li><strong>:not(selector)</strong> - All elements that are not selected by the selector</li>
-              <li><strong>:nth-child</strong> - All elements that are the nth children of their parent elements</li>
-              <li><strong>:odd</strong> - All elements with an odd index within the selected set</li>
-              <li><strong>:only-child</strong> - All elements that are only children of their parent elemens</li>
-              <li><strong>:parent</strong> - All elements that are parents of other elements, including text nodes</li>
-              <li><strong>:text</strong> - All elements with the type attribute set to text</li>
-              <li><strong>:visible</strong> - All elements that are visible</li>
-              <li><strong>not included</strong> - six attribute that let you select attributes with attibute values that contain specific substrings</li>
-            </ul>
-            <p>Examples</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h3>Some of the most useful jQuery selectors</h3>
+          <ul>
+            <li><strong>[attribute]</strong> - All elements with the named attribute</li>
+            <li><strong>[attribute=value]</strong> - All elements with the named attribute and value</li>
+            <li><strong>:contains(text)</strong> - All elements that contain the specified text</li>
+            <li><strong>:empty</strong> - All elements with no children including text nodes</li>
+            <li><strong>:eq(n)</strong> - The element with the index n within the selected set</li>
+            <li><strong>:even</strong> - All elements with an even index within the selected set</li>
+            <li><strong>:first</strong> - The first element within the selected set</li>
+            <li><strong>:first-child</strong> - All elements that are first children of their parent elements</li>
+            <li><strong>:gt(n)</strong> - All elements within the selected set that have an index greater than n</li>
+            <li><strong>:has(selector)</strong> - All elements that contain the element specified by the selector</li>
+            <li><strong>:header</strong> - All elements that are headers (h1,h2,...)</li>
+            <li><strong>:hidden</strong> - All elements that are hidden</li>
+            <li><strong>:last</strong> - The last element within the selected set</li>
+            <li><strong>:last-child</strong> - All elements that are last children of their parent elements</li>
+            <li><strong>:lt(n)</strong> - All elements within the selected set that have an index less than n</li>
+            <li><strong>:not(selector)</strong> - All elements that are not selected by the selector</li>
+            <li><strong>:nth-child</strong> - All elements that are the nth children of their parent elements</li>
+            <li><strong>:odd</strong> - All elements with an odd index within the selected set</li>
+            <li><strong>:only-child</strong> - All elements that are only children of their parent elemens</li>
+            <li><strong>:parent</strong> - All elements that are parents of other elements, including text nodes</li>
+            <li><strong>:text</strong> - All elements with the type attribute set to text</li>
+            <li><strong>:visible</strong> - All elements that are visible</li>
+            <li><strong>not included</strong> - six attribute that let you select attributes with attibute values that contain specific substrings</li>
+          </ul>
+          <p>Examples</p>
 <pre><code class="lang-js">
 $('li:first-child') // li elements that are first children of parent elements
 $('table > tr:even') // even tr elements of a table 
 $('#notes p:eq(2)') // third decendant p element of an element
 $(':text') // all inputs with text as the type attribute
 </code></pre>
-          </li>
-          <li>
-            <h3>Some of the most useful jQuery methods</h3>
-            <ul>
-              <li><strong>next([selector])</strong> - get the first sibling of each selected element or the first sibling of a specific type if param is coded</li>
-              <li><strong>prev([selector])</strong> - get the previous sibling of each selected element or the prevous sibling of a specific type if param is coded</li>
-              <li><strong>attr(attributeName)</strong> - get the value of a specified attribute from the first selected element</li>
-              <li><strong>attr(attributeName, value)</strong> - set the value of the specified attribute for each selected element</li>
-              <li><strong>css(propertyName)</strong> - get the value of the specified property name of the first selected element</li>
-              <li><strong>css(propertyName, value)</strong> - set the value of the property name for each of the selected elements</li>
-              <li><strong>addClass(className)</strong> - Add one or more classes to the selected elements, creating the class attribute if necessary. seperate multiple classes with spaces</li>
-              <li><strong>removeClass([className])</strong> - remove one or more classes, seperate multiples with spaces</li>
-              <li><strong>toggleClass([className])</strong>If class is present remove it otherwise add it</li>
-              <li><strong>hide([duration])</strong> - hide the selected elements. the duration can be fast, slow or a given time in milliseconds</li>
-              <li><strong>show([duration])</strong> - show the selected elements the duration param is the same as for hide</li>
-              <li><strong>each(function)</strong> - run the function for each element in an array</li>
-            </ul>
-            <p>Examples</p>
+        </li>
+        <li>
+          <h3>Some of the most useful jQuery methods</h3>
+          <ul>
+            <li><strong>next([selector])</strong> - get the first sibling of each selected element or the first sibling of a specific type if param is coded</li>
+            <li><strong>prev([selector])</strong> - get the previous sibling of each selected element or the prevous sibling of a specific type if param is coded</li>
+            <li><strong>attr(attributeName)</strong> - get the value of a specified attribute from the first selected element</li>
+            <li><strong>attr(attributeName, value)</strong> - set the value of the specified attribute for each selected element</li>
+            <li><strong>css(propertyName)</strong> - get the value of the specified property name of the first selected element</li>
+            <li><strong>css(propertyName, value)</strong> - set the value of the property name for each of the selected elements</li>
+            <li><strong>addClass(className)</strong> - Add one or more classes to the selected elements, creating the class attribute if necessary. seperate multiple classes with spaces</li>
+            <li><strong>removeClass([className])</strong> - remove one or more classes, seperate multiples with spaces</li>
+            <li><strong>toggleClass([className])</strong>If class is present remove it otherwise add it</li>
+            <li><strong>hide([duration])</strong> - hide the selected elements. the duration can be fast, slow or a given time in milliseconds</li>
+            <li><strong>show([duration])</strong> - show the selected elements the duration param is the same as for hide</li>
+            <li><strong>each(function)</strong> - run the function for each element in an array</li>
+          </ul>
+          <p>Examples</p>
 <pre><code class="lang-js">
 $('#image').attr('src'); // get the value of the src attribute of an image
 $('#image').attr('src', imageSrc); // set the value of the attrubute to a variable
 $('h2').css('color', 'blue'); // set the color property of h2 elements to blue 
 $('#notes h2').addClass('minus'); // add class to h2 decendants of the 'notes' element
 $('#image_list a').each(function() {
-  // function statements..
+// function statements..
 });   // run a function for each a element of 'image_list'
 </code></pre>
-          </li>
-          <li>
-            <h3>Some of the most useful event methods</h3>
-            <ul>
-              <li><strong>ready(handler)</strong> - The handler runs when the DOM is ready</li>
-              <li><strong>unload(handler)</strong> - the handler runs when the user closes the browser window</li>
-              <li><strong>error(handler)</strong> - the handler runs when a JavaScript error occurs</li>
-              <li><strong>click(handler)</strong> - the handler runs when the selected element is clicked</li>
-              <li><strong>dblclick(handler)</strong> - the handler runs when the selected element is double-clicked</li>
-              <li><strong>mouseenter(handleer)</strong> - the handler runs when the mouse enters the selected element</li>
-              <li><strong>mouseover(handler)</strong> - the handler runs when the mouse pointer moves over the selected element</li>
-              <li><strong>mouseout(handler)</strong> - the handler runs when the mouse pointer moves out of the selected element</li>
-              <li><strong>hover(handlerIn, handlerOut)</strong> - the first handler runs when the mouse pointer moves into an element, the second runs when the mouse pointer moves out</li>
-              <li><strong>preventDefault()</strong> - stops the defaut event action from happening</li>
-            </ul>
-            <p>Examples</p>
-            <pre><code class="lang-js">
+        </li>
+        <li>
+          <h3>Some of the most useful event methods</h3>
+          <ul>
+            <li><strong>ready(handler)</strong> - The handler runs when the DOM is ready</li>
+            <li><strong>unload(handler)</strong> - the handler runs when the user closes the browser window</li>
+            <li><strong>error(handler)</strong> - the handler runs when a JavaScript error occurs</li>
+            <li><strong>click(handler)</strong> - the handler runs when the selected element is clicked</li>
+            <li><strong>dblclick(handler)</strong> - the handler runs when the selected element is double-clicked</li>
+            <li><strong>mouseenter(handleer)</strong> - the handler runs when the mouse enters the selected element</li>
+            <li><strong>mouseover(handler)</strong> - the handler runs when the mouse pointer moves over the selected element</li>
+            <li><strong>mouseout(handler)</strong> - the handler runs when the mouse pointer moves out of the selected element</li>
+            <li><strong>hover(handlerIn, handlerOut)</strong> - the first handler runs when the mouse pointer moves into an element, the second runs when the mouse pointer moves out</li>
+            <li><strong>preventDefault()</strong> - stops the defaut event action from happening</li>
+          </ul>
+          <p>Examples</p>
+          <pre><code class="lang-js">
 // a handler for all text boxes that clears the double-clicked box
 $(':text').dblclick(function() {
-  $(this).val('');
+$(this).val('');
 }) // ends dblclick
 
 // a handler for each img element in a list
 $('#image_list img').hover(
-  function() {
-    alert('The mouse pointer has moved into an img element');
-  },
-  function() {
-    alert('The mouse pointer has moved out of an img element');
-  }
+function() {
+  alert('The mouse pointer has moved into an img element');
+},
+function() {
+  alert('The mouse pointer has moved out of an img element');
+}
 ); // end hover
 
 // preventDefault method that stops the default action of an event
 $('#faqs a').click(function(e) {
-  e.preventDefault();
+e.preventDefault();
 }); // end click
-            </code></pre>
-          </li>
-          <li>
-            <h3>Other event methods to be aware of</h3>
-            <ul>
-              <li><strong>on(events, handler)</strong> - attach an event handler to one or more events</li>
-              <li><strong>off(events, [handler])</strong> - remove an event hanlder from one or more events</li>
-              <li><strong>one(event, handler)</strong> - attach an event handler and remove it after it runs one time</li>
-              <li><strong>trigger(event)</strong> - trigger the event for the selected element</li>
-              <li><strong>bind(event, handler)</strong> - attach an event handler to an event</li>
-              <li><strong>unbind(event, handler)</strong> - remove an event handler from an event</li>
-            </ul>
-            <p>Examples</p>
+          </code></pre>
+        </li>
+        <li>
+          <h3>Other event methods to be aware of</h3>
+          <ul>
+            <li><strong>on(events, handler)</strong> - attach an event handler to one or more events</li>
+            <li><strong>off(events, [handler])</strong> - remove an event hanlder from one or more events</li>
+            <li><strong>one(event, handler)</strong> - attach an event handler and remove it after it runs one time</li>
+            <li><strong>trigger(event)</strong> - trigger the event for the selected element</li>
+            <li><strong>bind(event, handler)</strong> - attach an event handler to an event</li>
+            <li><strong>unbind(event, handler)</strong> - remove an event handler from an event</li>
+          </ul>
+          <p>Examples</p>
 <pre><code class="lang-js">
 // attach an event handler to an event
 $('#clear').on('click', function() {...});
@@ -231,31 +233,31 @@ $('#clear').click();  // shortcut
 
 // using the shortcut method to trigger an event from an event handler
 $(':text').dblclick(function() {
-  $('#clear').click(); // triggers the event of the clear button
+$('#clear').click(); // triggers the event of the clear button
 }); // end dblclick 
 </code></pre>
-          </li>
-        </ul>
-      </section>
-      <hr>
-      <section id="effects_animations">
-        <h2>How to use effects and animations</h2>
-        <ul>
-          <li>
-            <h3>basic methods for jQuery effects</h3>
-            <ul>
-              <li><strong>show()</strong> - display the selected elements from upper left to lower right</li>
-              <li><strong>hide()</strong> - hide the selected elements from lower right to upper left</li>
-              <li><strong>toggle()</strong> - display or hide the selected elements</li>
-              <li><strong>slideDown()</strong> - display the selected elements in a sliding motion</li>
-              <li><strong>slideUp()</strong> - hide the selected elements in a sliding motion</li>
-              <li><strong>slideToggle()</strong> - display or hide the selected elements with a sliding motion</li>
-              <li><strong>fadeIn()</strong> - display the selected elements by fading them into opaque</li>
-              <li><strong>fadeOut()</strong> - hide the selected elements by fading them out to transparent</li>
-              <li><strong>fadeToggle()</strong> - display or hide the fading them in or out</li>
-              <li><strong>fadeTo()</strong> - adjust the opaicty property of the selected elements to the opacity set by the second parameter. With this method, the duration parameter must be specified</li>
-            </ul>
-            <pre><code class="lang-js">
+        </li>
+      </ul>
+    </section>
+    <hr>
+    <section id="effects_animations">
+      <h2>How to use effects and animations</h2>
+      <ul>
+        <li>
+          <h3>basic methods for jQuery effects</h3>
+          <ul>
+            <li><strong>show()</strong> - display the selected elements from upper left to lower right</li>
+            <li><strong>hide()</strong> - hide the selected elements from lower right to upper left</li>
+            <li><strong>toggle()</strong> - display or hide the selected elements</li>
+            <li><strong>slideDown()</strong> - display the selected elements in a sliding motion</li>
+            <li><strong>slideUp()</strong> - hide the selected elements in a sliding motion</li>
+            <li><strong>slideToggle()</strong> - display or hide the selected elements with a sliding motion</li>
+            <li><strong>fadeIn()</strong> - display the selected elements by fading them into opaque</li>
+            <li><strong>fadeOut()</strong> - hide the selected elements by fading them out to transparent</li>
+            <li><strong>fadeToggle()</strong> - display or hide the fading them in or out</li>
+            <li><strong>fadeTo()</strong> - adjust the opaicty property of the selected elements to the opacity set by the second parameter. With this method, the duration parameter must be specified</li>
+          </ul>
+          <pre><code class="lang-js">
 //* basic syntax for all of the methods except the fadeTo method
 //* methodName( [duration][, callback]);
 $('#startup_message').fadeOut(5000).slideDown(1000);
@@ -264,43 +266,43 @@ $('#startup_message').fadeOut(5000).slideDown(1000);
 //* fadeTo(duration, opacity[, callback]);
 $('#number2').fadeTo(5000, .2).fadeTo(1000, 1); // chaining is the preferred way
 $('#number2').fadeTo(5000, .2, 
-  function() {
-    $(this).fadeTo(1000, 1);
-  }
+function() {
+  $(this).fadeTo(1000, 1);
+}
 );
-            </code></pre>
-          </li>
-          <li>
-            <h3>How to use animations</h3>
-            <pre><code class="lang-js">
+          </code></pre>
+        </li>
+        <li>
+          <h3>How to use animations</h3>
+          <pre><code class="lang-js">
 //* basic syntax for animations
 //* animate({properties}[, duration][, callback]);
 $('#faqs h1').animate(
-  { fontSize: '275%', opacity: 1, left: 0 }, // the property map
-  2000
+{ fontSize: '275%', opacity: 1, left: 0 }, // the property map
+2000
 ); // end animate
 
 // example with callback
 $('#faqs h1').animate(
-  { fontSize: '275%', opacity: 1, left: '+=175' }, 
-  2000,
-  function() {
-    $('#faqs h2').next().fadeIn(1000).fadeOut(1000);
-  }
+{ fontSize: '275%', opacity: 1, left: '+=175' }, 
+2000,
+function() {
+  $('#faqs h2').next().fadeIn(1000).fadeOut(1000);
+}
 ); // end animate
-            </code></pre>
-          </li>
-          <li>
-            <h3>The delay, swap, and finish methods</h3>
-            <ul>
-              <li><strong>delay(duration)</strong> - delay the start of the next animation in queue</li>
-              <li><strong>stop([clearQueue][, jumpToEnd])</strong> - Stop the current animation for the selected element. the two parameters are boolean with false default values. If set to true, the first parameter clears the queue so no additional animations run. The second parameter causes the current animation to be completed immediately</li>
-              <li><strong>finish([queue])</strong> - Stop the animation for the selected element, clear the queue, and complete all animations for the selected elements</li>
-            </ul>
-          </li>
-          <li>
-            <h3>Using Easings</h3>
-            <pre><code class="lang-js">
+          </code></pre>
+        </li>
+        <li>
+          <h3>The delay, swap, and finish methods</h3>
+          <ul>
+            <li><strong>delay(duration)</strong> - delay the start of the next animation in queue</li>
+            <li><strong>stop([clearQueue][, jumpToEnd])</strong> - Stop the current animation for the selected element. the two parameters are boolean with false default values. If set to true, the first parameter clears the queue so no additional animations run. The second parameter causes the current animation to be completed immediately</li>
+            <li><strong>finish([queue])</strong> - Stop the animation for the selected element, clear the queue, and complete all animations for the selected elements</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Using Easings</h3>
+          <pre><code class="lang-js">
 //* basic syntax for using easing for basic methods except fadeTo method
 methodName([duration][, easing][, callback]);
 
@@ -309,33 +311,97 @@ fateTo(duration, opacity[, easing][, callback]);
 
 //* syntax for basic animate method
 animate({ properties }[, duration][, easing][, callback]);
-            </code></pre>
-          </li>
-          <li>
-            <h3>Advaced syntax for animate and queue methods</h3>
-            <p>Be aware that there is an advaced syntax for the animate method that includes options</p>
-            <p>Also there are methods for working with the animation queue if they are ever needed</p>
-          </li>
+          </code></pre>
+        </li>
+        <li>
+          <h3>Advaced syntax for animate and queue methods</h3>
+          <p>Be aware that there is an advaced syntax for the animate method that includes options</p>
+          <p>Also there are methods for working with the animation queue if they are ever needed</p>
+        </li>
 
-        </ul>
-      </section>
-      <hr>
-      <section id="plugins">
-        <h2>jQuery Plugins</h2>
-        <ul>
-          <li>
-            <h3>Where to fing plugins</h3>
-            <ul>
-              <li><a href="http://plugins.jquery.com">jQuery Plugin Repository</a></li>
-              <li><a href="http://jquery-plugins.net">jQuery Plugins</a></li>
-              <li><a href="http://code.goolge.com">Google Code</a></li>
-              <li><a href="http://github.com">GitHub</a></li>
-              <li><a href="http://sourceforge.net">Sourceforge</a></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-  </header>
+      </ul>
+    </section>
+    <hr>
+    <section id="plugins">
+      <h2>jQuery Plugins</h2>
+      <ul>
+        <li>
+          <h3>Where to fing plugins</h3>
+          <ul>
+            <li><a href="http://plugins.jquery.com">jQuery Plugin Repository</a></li>
+            <li><a href="http://jquery-plugins.net">jQuery Plugins</a></li>
+            <li><a href="http://code.goolge.com">Google Code</a></li>
+            <li><a href="http://github.com">GitHub</a></li>
+            <li><a href="http://sourceforge.net">Sourceforge</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section id="working_with_forms">
+      <h3>jQuery Selectors for Form Controls</h3>
+      <ul>
+        <li><strong>:input</strong> - All input, select, textarea, and button elements</li>
+        <li><strong>:text</strong> - All text boxes, input elements with type equal to text</li>
+        <li><strong>:radio</strong> - All radio buttons, input elements with type equal to button</li>
+        <li><strong>:checkbox</strong> - All check boxes, input elements with type equal to checkbox</li>
+        <li><strong>:file</strong> - All file upload fields, input elements with type equal to file</li>
+        <li><strong>:password</strong> - All password fields, input elements with type equal to password</li>
+        <li><strong>:submit</strong> - All submit buttons and button elements, input elements with type equal to submit and button elements</li>
+        <li><strong>:reset</strong></li> - All reset buttons, input elements with type equal to reset
+        <li><strong>:image</strong> - All image buttons, input elements with type equal to image</li>
+        <li><strong>:button</strong> - All buttons, input elements with type equal to button</li>
+        <li><strong>:disabled</strong> - All disabled elements, elements that have the disabled attribute</li>
+        <li><strong>:enabled</strong> - All enabled elements, elements that don't have the disabled attribute</li>
+        <li><strong>:checked</strong> - All check boxes and radio buttons that are checked</li>
+        <li><strong>:selected</strong> - All options in select elements that are selected</li>
+      </ul>
+      <h3>jQuery methods for getting and setting values of controls</h3>
+      <ul>
+        <li><strong>val()</strong> - Gets the value of a text box or other form control element</li>
+        <li><strong>val(value)</strong> - Sets the value of a text box or other form control element</li>
+      </ul>
+      <h3>jQuery method for trimming an entry</h3>
+      <ul>
+        <li><strong>trim()</strong> - Removes all spaces at the start and end of a string</li>
+      </ul>
+      <h3>jQuery event methods for forms</h3>
+      <ul>
+        <li><strong>focus(handler)</strong> - The handler runs when the focus moves to the selected element</li>
+        <li><strong>blur(handler)</strong> - The handler runs when the focus leaves the selected element</li>
+        <li><strong>change(handler)</strong> - The handler runs when the value in the selected element is changed</li>
+        <li><strong>select(handler)</strong> - The handler runs when the user selects text in a text or textarea box</li>
+        <li><strong>submit(handler)</strong> - The handler rus when a submit button is clicked</li>
+      </ul>
+      <h3>jQuery methods that trigger events</h3>
+      <ul>
+        <li><strong>focus()</strong> - Moves the focus to the selected element and triggers the focus event</li>
+        <li><strong>blur()</strong> - Removes the focus from the selected element and triggers the blur event</li>
+        <li><strong>change()</strong> - Triggers the change event</li>
+        <li><strong>select()</strong> - Triggers the select event</li>
+        <li><strong>submit()</strong> - Triggers the submit event for a form</li>
+      </ul>
+      <h3>Validate options for the validate method of the plugin</h3>
+      <ul>
+        <li><strong>required: true</strong> - this field is required</li>
+        <li><strong>email: true</strong> - Please enter a valid email address</li>
+        <li><strong>url: true</strong> - Please enter a valid URL</li>
+        <li><strong>date: true</strong> - Please enter a valid date</li>
+        <li><strong>dateISO: true</strong> - Please enter a valid date (ISO)</li>
+        <li><strong>number: true</strong> - Please enter a valid number</li>
+        <li><strong>digits: true</strong> - Please enter only digits</li>
+        <li><strong>creditcard: true</strong> - Please enter a valid credit card number</li>
+        <li><strong>equalTo: 'selector'</strong> - Please enter the same value again</li>
+        <li><strong>maxlength: value</strong> - Please enter no more than (value) characters</li>
+        <li><strong>minlength: value</strong> - Please enter at least (value) characters</li>
+        <li><strong>rangelength: [value1, value2]</strong> - Please enter a value between (value1) and (value2) characters long</li>
+        <li><strong>max: value</strong> - Please enter a value less than or equal to (value)</li>
+        <li><strong>min: value</strong> - Please enter a value greater than or equal to (value)</li>
+        <li><strong>range: [value1, value2]</strong> - Please enter a value between (value1) and (value2)</li>
+      </ul>
+    </section>
+  </main>
+      
+  
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-core.min.js" integrity="sha512-hqRrGU7ys5tkcqxx5FIZTBb7PkO2o3mU6U5+qB9b55kgMlBUT4J2wPwQfMCxeJW1fC8pBxuatxoH//z0FInhrA==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-Q3qGP1uJL/B0sEmu57PKXjCirgPKMbg73OLRbTJ6lfHCVU5zkHqmcTI5EV2fSoPV1MHdKsCBE7m/aS6q0pPjRQ==" crossorigin="anonymous"></script>
