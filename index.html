@@ -337,7 +337,9 @@ animate({ properties }[, duration][, easing][, callback]);
         </li>
       </ul>
     </section>
+    <hr>
     <section id="working_with_forms">
+      <h2>Working with forms and controls</h2>
       <h3>jQuery Selectors for Form Controls</h3>
       <ul>
         <li><strong>:input</strong> - All input, select, textarea, and button elements</li>
@@ -398,6 +400,230 @@ animate({ properties }[, duration][, easing][, callback]);
         <li><strong>min: value</strong> - Please enter a value greater than or equal to (value)</li>
         <li><strong>range: [value1, value2]</strong> - Please enter a value between (value1) and (value2)</li>
       </ul>
+    </section>
+    <hr>
+    <section id="dom">
+      <h2>DOM manipulation and traversal methods</h2>
+      <h3>Methods for working with attributes</h3>
+      <ul>
+        <li><strong>attr(name)</strong> - gets the value of the named attribute from the first selected element</li>
+        <li><strong>attr(name, value)</strong> - sets the named attribute for each selected element</li>
+        <li><strong>attr(map)</strong> - sets the value of multiple attributes specified by the name/value pairs in the attribute map<br>ex. $("#image").attr( {"src": "book1.jpg", "alt": "Book 1"} );</li>
+        <li><strong>attr(name, function)</strong> - sets the value of the named attribute to the value returned by the function</li>
+        <li><strong>removeAttr(name)</strong> - removes the named attribute from each selected element</li>
+      </ul>
+      <pre><code class="lang-js">
+$('#image').attr('src', 'book.jpg');
+
+// Use map to set two values
+$('#image').attr( {'src': 'book.jpg', 'alt': 'Book 1'} );
+
+// Use a function to set href attribute
+$('aside a').attr('href', function(index) {
+  let href = '#heading' + (index + 1);
+  return href;
+});
+
+// remove id attribute
+$('#faqs h2').removeAttr('id');
+      </code>
+      </code></pre>
+      <h3>Methods for working with class attributes</h3>
+      <ul>
+        <li><strong>hasClass(name)</strong> - returns true if the named class is present in any selected elements</li>
+        <li><strong>addClass(name)</strong> - adds the named class to each selected element</li>
+        <li><strong>addClass(function)</strong> - adds the class specified by the value returned by the function</li>
+        <li><strong>removeClass(name)</strong> - removes the named class from each of the selected elements</li>
+        <li><strong>removeClass(function)</strong> - removes the class specified by the value returned by the function</li>
+        <li><strong>toggleClass(name)</strong> - if the named class is present, remove it from each selected element. otherwise, add it</li>
+        <li><strong>toggleClass(function)</strong> - if the class specified by the value returned by the function is present, remove it. Otherwise, add it</li>
+      </ul>
+      <pre><code class="lang-js">
+// test if element has a specified class
+if ($('#faqs').hasClass('closed')) {
+  do something;
+}
+
+// add a class
+$('#faqs h2').addClass('minus');
+
+// remove a class
+$('#faqs h2').removeClass('minus');
+      </code></pre>
+      <h3>Methods for DOM replacement</h3>
+      <ul>
+        <li><strong>val()</strong> - gets the value of the first selected form element</li>
+        <li><strong>val(value)</strong> - sets the value of the selected form elements</li>
+        <li><strong>val(function)</strong> - sets the value of the selected form elements to the value returned by the function</li>
+        <li><strong>text()</strong> - gets the combined text of all selected elements inclucing their descendants</li>
+        <li><strong>text(textString)</strong> - sets the contents of each selected element to the specified text</li>
+        <li><strong>text(function)</strong> - sets contents of each selected element to the text returned by the function</li>
+        <li><strong>html()</strong> - gets the html contents of the first seclected element</li>
+        <li><strong>html(htmlString)</strong> - sets the HTML contents of each selected element to the specified HTML</li>
+        <li><strong>html(function)</strong> - set the HTML contents of each selected element to the HTML string returned by the function</li>
+        <li><strong>replaceWith(content)</strong> - replaces each selected element with the specified content. this counld be an HTML string, a DOM element, or a jQuery object</li>
+        <li><strong>replaceAll(target)</strong> - replaces the target element with the selected element. this is reverse of how the replaceWith method is coded</li>
+      </ul>
+      <pre><code class="lang-js">
+// display the HTML in the aside 
+alert($('aside').html());
+
+// put a h2 into the aside
+$('aside').html(`&lt;h2&gt;Table of Contents&lt;/h2&gt;`);
+
+// replace all elements with class old with an h2 element
+$('.old').replaceWith('&lt;h2&gt;&lt;/h2&gt;');
+
+// replace all elements with class old with an h2 element
+$('&lt;h2&gt;&lt;/h2&gt;').replaceAll('.old');
+      </code></pre>
+      <h3>Methods for DOM inserting and cloning</h3>
+      <ul>
+        <li><strong>prepend(content)</strong> - Inserts the specified content at the start of each selected element</li>
+        <li><strong>prepend(function)</strong> - Inserts the content returned by the function at the start of each specified element</li>
+        <li><strong>prependTo(target)</strong> - Inserts all of the selected elements at the start of each of the target elements</li>
+        <li><strong>append(content)</strong> - Inserts the specified content at the end of each selected element</li>
+        <li><strong>append(function)</strong> - Inserts the content returned by the function at the end of the selected elements</li>
+        <li><strong>appendTo(target)</strong> - Inserts all of the selected elements at the end of each target elements</li>
+        <li><strong>before(content)</strong> - Inserts the specified content before each selected element</li>
+        <li><strong>before(function)</strong> - Inserts the content returned by the function before each of the selected elements</li>
+        <li><strong>insertBefore(target)</strong> - Inserts all of the selected elements before each of the target elements</li>
+        <li><strong>after(content)</strong> - Inserts the specified content after each of the selected elements</li>
+        <li><strong>after(function)</strong> - Inserts the content returned by the function after each of the selected elements</li>
+        <li><strong>insertAfter(target)</strong> - Inserts all of the selected elements after each target element</li>
+        <li><strong>clone([withEvents])</strong> - Create a copy of the selected elements. The parameter is a Boolean that indicates if the event handlers are also copied</li>
+      </ul>
+      <pre><code class="lang-js">
+// insert an h2 at the end of an aside
+$('aside').append('&lt;h2&gt;Table of Contents&lt;/h2&gt;');
+
+// insert an a element after the last p element in an article
+$('article p:last').after('&lt;a href="#top"&gt;Back to top&lt;/a&gt;');
+
+// insert the a elements in an article after the h2 elements in an aside
+$('article a').insetAfter($('aside h2'));
+
+// clone the a elements and inset them after the h2 element in an aside
+$('article a').clone().insertAfter($('aside h2'));
+      </code></pre>
+      <h3>Methods for DOM wrapping and removal</h3>
+      <ul>
+        <li><strong>wrap(element)</strong> - Wraps the specified element around each selected element</li>
+        <li><strong>wrap(function)</strong> - Wraps the element returned by the function around each of the specified elements</li>
+        <li><strong>wrapAll(element)</strong> - wraps the specified element around all of the selected elements</li>
+        <li><strong>wrapInner(element)</strong> - Wraps the specified element around the content of each selected element</li>
+        <li><strong>wrapInner(function)</strong> - Wraps the element returned by the function around the content of each selected element</li>
+        <li><strong>empty()</strong> - Removes all of the child nodes of each selected element</li>
+        <li><strong>remove([selector])</strong> - Removes the selected elements from the DOM. If a selector is specified, it filters the selected elements</li>
+        <li><strong>unwrap()</strong> - Removes the parent of each selected element</li>
+      </ul>
+      <pre><code class="lang-js">
+// wrap all a elements in h2 elements
+$('a').wrap('&lt;h2&gt;&lt;/h2&gt;');
+
+// wrap the h1 text in an a element
+$('article h1').wrapInner('&lt;a id="top"&gt;&lt;/a&gt;');
+
+// remove the first a element in an article
+$('article a:first').remove();
+      </code></pre>
+      <h3>Methods for working with styles</h3>
+      <ul>
+        <li><strong>css(name)</strong> - Gets the value of the named property from the first selected element</li>
+        <li><strong>css(name, value)</strong> - sets the value of the named propety for each of the selected elements</li>
+        <li><strong>css(map)</strong> - Sets the value of multiple properties specified by the name/value pair map</li>
+        <li><strong>css(name, function)</strong> - Sets the value of the named propety to the value returned by the function</li>
+        <li><strong>height()</strong> - Gets the height of the first selected element. This height does not include padding, margins, or borders</li>
+        <li><strong>height(value)</strong> - Sets the height of each selected element</li>
+        <li><strong>innerHeight()</strong> - Gets the height of the first selected element including padding but not margins or borders</li>
+        <li><strong>outerHeight([includeMargin])</strong> - Gets the height of the first selected element including padding and borders. If the parameter is set to true, it also includes margins.</li>
+        <li><strong>width()</strong> - Gets the width of the first selected element. This doesn't include padding, margins, or borders</li>
+        <li><strong>width(value)</strong> - Sets the width of each selected element</li>
+        <li><strong>innerWidth()</strong> - Gets the width of the first selected element including padding but not margins or borders</li>
+        <li><strong>outerWidth([includeMargin])</strong> - Gets the width of the first selected element including padding and borders. If the parameter is set to true, it also includes margins</li>
+      </ul>
+      <pre><code class="lang-js">
+// Set all h2 elements color to blue
+$('h2').css('color', 'blue');
+
+// use map to set two css properties
+$('h2').css( {'color': 'blue', 'font-size': '150%'} );
+
+// get the height of an article element
+let height = $('article').height();
+      </code></pre>
+      <h3>Methods for positioning elements</h3>
+      <ul>
+        <li><strong>offset()</strong> - Gets the coordinates of the first selected element and returns an object with top and left properties. These coordinates are relative to the document</li>
+        <li><strong>offset(coordinates)</strong> - Sets the coordinates for each of the selected elements relative to the document. The parameter is an object with left and top properties</li>
+        <li><strong>position()</strong> - Gets the coordinates of the first selected element and returns an object with top and left properties. These coordinates are relative to the parent</li>
+        <li><strong>scrollTop()</strong> - Gets the position of the vertical scroll bar for the first selected element</li>
+        <li><strong>scrollTop(value)</strong> - Sets the position of the vertical scroll bar for each selected element</li>
+        <li><strong>scrollLeft()</strong> - Gets the position of the horizontal scroll bar for the first selected element</li>
+        <li><strong>scrollLeft(value)</strong> - Sets the position of the horizontal scroll bar for each selected element</li>
+      </ul>
+      <pre><code class="lang-js">
+// get the top offset for an article element
+let offsetTop = $('articele').offset().top;
+
+// Set the offset coordinates for an aside element
+let asideCoordinates = new Object();
+asideCoordinates.top = 200;
+asideCoordinates.left = 100;
+$('aside').offset(asideCoordinates);
+
+// Move the scroll bar for the window to the offsetTop
+$(window).scrollTop(0);
+      </code></pre>
+      <h3>Two event methods used with DOM manipulation</h3>
+      <ul>
+        <li><strong>on(events[, selector], handler)</strong> - Attach an event handler to one or more events of the selected elements</li>
+        <li><strong>off(events[, selector][, handler])</strong> - remove an event handler from one or more events</li>
+      </ul>
+      <pre><code class="lang-js">
+// a click event method that handles the click event of an h2 element
+$('#accordion h2').click(function() {
+  // the code for the event handler
+});
+
+// an on event method that handles the click event of an h2 element
+$('#accordion').on('click', 'h2', function(){
+  // the code for the event handler
+});
+
+// an off event method that removes the first click event above
+$('#accordion h2').off('click');
+
+// an off event method that removes the second click event handler above
+$('#accordion').off('click', 'h2');
+      </code></pre>
+      <h3>DOM traversal methods</h3>
+      <ul>
+        <li><strong>sibling([selector])</strong> - Gets the siblings of each selector, optionally filtered by a selector</li>
+        <li><strong>next([selector])</strong> - Gets the first sibling that follows each selected element, optionally filtered by a selector</li>
+        <li><strong>nextAll([selector])</strong> - Gets all siblings that follow a selected element, optionally filtered by a selector</li>
+        <li><strong>nextUntil(selector)</strong> - Gets all siblings that follow a selected element up to but not including the element specified by the selector</li>
+        <li><strong>prev([selector])</strong> - Gets the first sibling that precedes each seleceted element, optionally filtered by the selector</li>
+        <li><strong>prevAll([selector])</strong> - Gets all siblings that precedes each selected element, optionally filtered by a selector</li>
+        <li><strong>prevUntil(selector)</strong> - Gets all siblings that precede each selected element, up to but not including the element specified by the selector</li>
+        <li><strong>children([selector])</strong> - Gets the children of each selected elemetnt, optionally filtered by the selector</li>
+        <li><strong>parents([selector])</strong> - Gets the ancestors of the selected elements, optionally filtered by the selector</li>
+        <li><strong>parentsUntil(selector)</strong> - Gets the ancestors of each selected element, up to but not including the element specified by the selector</li>
+        <li><strong>parent([selector])</strong> - Gets the parent of each selected element, optionally filtered by the selector</li>
+        <li><strong>offsetParent()</strong> - Gets the closest ancestor of an element that is positioned</li>
+        <li><strong>closest(selector[, context])</strong> - Gets the first element that matched the specified selector, beginning at the current element and going up the DOM tree. If the context parameter is specified, it specifies a DOM element within which the selected element must be found</li>
+        <li><strong>find(selector)</strong> - Gets the descedants of each selected element after it has been filtered by the specified selector</li>
+      </ul>
+      <pre><code class="lang-js">
+// get the prev paragragh sibling of an element
+let previousParagragh = $('#last_heading').prev('p');
+
+// get the parent of an element
+let parent = $('#faqs').parent();
+
+// get the span elements within p elements within an article element
+$('article p').find('span').css('color', 'red');
+      </code></pre>
     </section>
   </main>
       

@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 81.25%;
+  width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 3px solid orangered;
+  position: relative;
+}
+
+article, aside, h1, h2, ul, p, a {
+  margin: 0;
+  padding: 0;
+}
+
+aside {
+  width: 240px;
+  float: left;
+  position: absolute;
+}
+
+article {
+  width: 440px;
+  margin-left: 260px;
+}
+
+h1 {
+  padding-bottom: 0.25em;
+  color: orangered;
+}
+
+h2 {
+  font-size: 120%;
+  padding: 0.5em 0 0.25em;
+}
+
+p { padding-bottom: 0.5em; }
+
+aside a {
+  display: block;
+  font-size: 100%;
+  padding-bottom: 0.5em;
+}
+
+article p { text-indent: 1.5em; }

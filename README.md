@@ -48,3 +48,17 @@
 - three of the most useful plugins
 - creating your own plugins
 - using plugins
+
+## Chapter 8 - how work with forms and data validation
+- intro to forms and controls
+- Using jQuery to work with forms 
+- Validation using JavaScript
+- How to use a plugin for validation
+- A validation app that uses the validation plugin
+
+## Chapter 9 - How to use the DOM manipulation and traversal methods
+- DOM manipulation methods
+- the TOC app
+- Methods for working with style and positioning
+- Two event methods used with DOM manipulation
+- DOM traversal methods

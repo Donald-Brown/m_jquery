@@ -2,7 +2,8 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  margin-bottom: 3em;
+  margin: 0 auto 3em;
+  max-width: 860px;
 }
 
 #basics ul ul li, #effects_animations ul ul li {
