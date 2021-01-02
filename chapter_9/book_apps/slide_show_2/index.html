@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>Slide Show with DOM traversal 2</title>
+</head>
+<body>
+  <main>
+    <h1>Current Books Slide Show</h1><br>
+    <div id="slides">
+      <img src="../../../images/books/book1.jpg" alt="HTML and CSS3">
+      <img src="../../../images/books/book2.jpg" alt="PHP and MySQL">
+      <img src="../../../images/books/book3.jpg" alt="Java Servlets and JSP">
+      <img src="../../../images/books/book4.jpg" alt="Dreamweaver CC 2014">
+      <img src="../../../images/books/book5.jpg" alt="SQL Server 2012">
+    </div>
+  </main>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script>
+    $(function() {
+      $('#slides img').slice(1).hide();
+      let slideIndex = 0, topIndex = $('#slides img').length - 1;
+      setInterval(function() {
+        $('#slides img').eq(slideIndex).fadeOut(1000);
+        if (slideIndex < topIndex) {
+          $('#slides img').eq(slideIndex).next().fadeIn(1000);
+          slideIndex++;
+        } else {
+          $('#slides img').eq(0).fadeIn(1000);
+          slideIndex = 0;
+        }
+      }, 3000);
+    }); //? end ready
+  </script>
+</body>
+</html>

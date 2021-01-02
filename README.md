@@ -62,3 +62,4 @@
 - Methods for working with style and positioning
 - Two event methods used with DOM manipulation
 - DOM traversal methods
+  

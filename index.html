@@ -624,6 +624,37 @@ let parent = $('#faqs').parent();
 // get the span elements within p elements within an article element
 $('article p').find('span').css('color', 'red');
       </code></pre>
+      <h3>Filtering methods</h3>
+      <ul>
+        <li><strong>filter(selector)</strong> - Reduces the set of selected elements to those that match the selector</li>
+        <li><strong>filter(function)</strong> - Reduces the set of selected elements to those that pass the functions test</li>
+        <li><strong>not(selector)</strong> - Removes the elements specified by the selector from the set of selected elements</li>
+        <li><strong>not(elements)</strong> - Removes the specified elements from the set of selected elements</li>
+        <li><strong>not(function)</strong> - Removes the elements that pass the functions test from the set of selected elements</li>
+        <li><strong>has(selector)</strong> - Reduces the set of selected elements to those that have a descendant that matched the selector</li>
+        <li><strong>eq(index)</strong> - Reduces the set of selected elements to the one that has the specified index</li>
+        <li><strong>first()</strong> - Reduces the set of selected elements to the first one in the set</li>
+        <li><strong>last()</strong> - Reduces the set of selected elements to the last one in the set</li>
+        <li><strong>slice(start[, end])</strong> - Reduces the set of selected elements to those within the range of the indexes that are specified by the parameters</li>
+        <li><strong>end()</strong> - Returns the set of selected elements to its previous state</li>
+      </ul>
+      <pre><code class="lang-js">
+// change a property for the h2 elements that are in the 'best' class
+$('h2').filter('.best').css('color', 'red');
+
+// change a property for all p elements except the ones with the 'first' class
+$('p').not('.first').css('text-indent', '1.5em');
+
+// Hide all images in the 'slides' element except for the one with index 0
+$('#slides img').slice(1).hide();
+
+// work with images in a set
+$('#slides img')
+                .first().fadeOut(1000)  // fade out first img element in set
+                .next().fadeIn(1000)    // fade in the next element in set
+                .end()                  // return to first element in set
+                .appendTo('#slides');   // append first element to end of set
+      </code></pre>
     </section>
   </main>
       
