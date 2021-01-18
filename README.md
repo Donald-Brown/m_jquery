@@ -63,3 +63,8 @@
 - Two event methods used with DOM manipulation
 - DOM traversal methods
   
+## Chapter 10 - Get off to a fast start with jQuery UI themes and widgets
+- intro to jQuery UI
+- How to build and use a jQuery UI download
+- how to use widgets
+- a page that uses jQuery UI

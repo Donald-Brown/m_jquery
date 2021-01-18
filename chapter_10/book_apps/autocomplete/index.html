@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Autocomplete</title>
+</head>
+<body>
+  <main>
+    <h1>Search our Book Database</h1>
+    <div class="ui-widget">
+      <label for="books">Book: </label>
+      <input id="books">
+    </div>
+  </main>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      const murachBooks = ["ADO.NET", "Android", "ASP.NET",  "C#", "C++", "CSS", "Dreamweaver CC",
+            	 "HTML5", "Java", "Java Servlets", "JavaScript", "jQuery", "MySQL",
+            	 "Oracle SQL", "PHP", "SQL Server", "VB", "Web Development",
+            	 "Web Programming"];  
+      $('#books').autocomplete({
+        source: murachBooks
+      });
+    }); //? end ready
+  </script>
+</body>
+</html>
