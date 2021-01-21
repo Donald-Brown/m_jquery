@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../ui_custom1/jquery-ui.min.css">
+  <title>Resizable Header</title>
+</head>
+<body>
+  <div id="dialog" class="ui-widget-content">
+    <h3 class="ui-widget-header">Resizable Element</h3>
+  </div>
+  
+  <script src="../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#dialog').resizable({
+        maxHeight: 250,
+        maxWidth: 350,
+        minHeight: 150,
+        minWidth: 200
+      });
+    }); //? end ready
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <main class="css"></main>
+  <title>Draggable and Droppable</title>
+</head>
+<body>
+  <main>
+    <h2>Add to Cart</h2>
+    <p>
+      Drag software box to add it to your cart.
+    </p>
+    <div id="draggables">
+      <div id="vprospect"><img src="images/vprospect.png" alt=""></div>
+      <div id="vconvert"><img src="images/vconvert.png" alt=""></div>
+      <div id="vretain"><img src="images/vretain.png" alt=""></div>
+    </div>
+    <h3>Your Cart</h3>
+    <div id="cart">
+      <ul></ul>
+    </div>
+  </main>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#vprospect, #vconvert, #vretain').draggable({
+        cursor: 'move'
+      }); //? end draggable
+      $('#cart ul').droppable({
+        drop: function(e, ui) {
+          $('<li></li>').html(ui.draggable.children()).appendTo(this);
+        }
+      }); //? end droppable
+    }); //? end ready
+  </script>
+</body>
+</html>
