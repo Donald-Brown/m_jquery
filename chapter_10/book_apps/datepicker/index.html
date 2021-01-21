@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Date Picker</title>
+</head>
+<body> 
+  <main>
+    <label>Arrival Date: </label>
+    <label><input type="text" id="datepicker"></label>
+  </main>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#datepicker').datepicker();
+    }); //? end ready
+  </script>
+  <!--<script>
+    	$(document).ready(function(){
+    		$("#datepicker").datepicker({
+        		minDate: new Date(),
+        		maxDate: +45,
+        		showButtonPanel: true
+    		});
+		});
+	</script> -->
+</body>
+</html>

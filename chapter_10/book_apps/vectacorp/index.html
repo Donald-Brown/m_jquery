@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Vecta Corp</title>
+</head>
+<body>
+  <header></header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Contact Us</h2>
+    <form id="contact_us_form">
+      <p>
+        Fill out the form below and a sales representative will contact you shortly. For more information on how to fill out this form, please review our <a href="#" id="help">vSupport documentation</a>.
+      </p>
+
+      <!-- Begin dialog widget -->
+      <div id="helpdialog" title="vSupport" style="display: none;">
+        Our contact form is divided into four sections: Personal information, Company information, Product information, and Additonal information. Please provide as much information as you can so our sales representative has as much information as posible before contacting you.
+      </div>
+      <!-- End dialog widget -->
+
+      <!-- Begin tabs widget -->
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1">Personal</a></li>
+          <li><a href="#tabs-2">Company</a></li>
+          <li><a href="#tabs-3">Product</a></li>
+          <li><a href="#tabs-4">Additional</a></li>
+        </ul>
+        <div id="tabs-1">
+          <label>Name:</label>
+          <input type="text" id="name" name="name" maxlength="30" required>
+
+          <label for="phonenumber">Phone Number:</label>
+          <input type="text" id="phonenumber" name="phonenumber" maxlength="20" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required>
+
+          <label>Email:</label>
+          <input name="email" id="email" type="email" maxlength="30" required>
+        </div>
+        <div id="tabs-2">
+          <label>Company Name:</label>
+          <input name="companyname" type="text" id="companyname" maxlength="30">
+
+          <label>Company Size:</label> 
+          <input type="text" id="employees" style="border:0;">
+          <!-- BEGIN SLIDER WIDGET -->  
+          <div id="slider"></div><br>
+          <!-- END SLIDER WIDGET -->  
+
+          <label for="infrastructure">Current Infrastructure:</label>
+          <select name="infrastructure" id="infrastructure">
+            <option value="Mac">Mac</option>
+            <option value="Linux">Linux</option>
+            <option value="Unix">Unix</option>
+            <option value="Windows">Windows</option>
+          </select>
+        </div>
+        <div id="tabs-3">
+          <label>Product Interest:</label>
+          <select name="product" id="product" size="3" multiple>
+            <option value="vProspect 2.0">vProspect 2.0</option>
+            <option value="vConvert 2.0">vConvert 2.0</option>
+            <option value="vRetain 1.0">vRetain 1.0</option>
+          </select>
+        </div>
+        <div id="tabs-4">
+          <label>How did you hear about us?</label>
+          <select name="hearaboutus" id="hearaboutus">
+            <option value="Ad">Print Ad / Web Ad</option>
+            <option value="Word of Mouth">Word of Mouth</option>
+            <option value="Radio">Radio Ad</option>         
+            <option value="TV Commercial">TV Commercial</option>
+          </select>  
+
+          <label>Questions / Comments:</label>
+          <textarea name="questions" id="questions" rows="3"></textarea>
+
+          <label>Best day to reach you:</label>
+          <!-- BEGIN DATEPICKER WIDGET -->  
+          <input type="text" id="datepicker"><br>
+          <!-- END DATEPICKER WIDGET -->  
+        </div>
+      </div>
+      <!-- End tabs widget -->
+
+      <!-- Begin button widget -->
+      <input type="submit" id="submitbutton" value="submit form">
+      <!-- End button widget -->
+    </form>
+  </main>
+  <footer></footer>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Menu Widget</title>
+</head>
+<body>
+  <main>
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a>
+        <ul>
+          <li><a href="history.html">Company history</a></li>
+          <li><a href="staff.html">Our Staff</a></li>
+          <li><a href="headquarters.html">Our Headquarters</a></li>
+        </ul>
+      </li>
+      <li><a href="solutions.html">Solutions</a>
+        <ul>
+          <li><a href="vProspect.html">vProspect 2.0</a></li>
+          <li><a href="vConvert.html">vConvert 2.0</a></li>
+          <li><a href="vRetain.html">vRetain 1.0</a></li>
+        </ul>
+      </li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+  </main>
+  <!-- <main>
+		<ul id="menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="aboutus.html">About Us</a>
+				<ul>
+					<li><a href="history.html">Company History</a></li>
+					<li><a href="staff.html">Our Staff</a></li>
+					<li><a href="headquarters.html">Our Headquarters</a></li>
+				</ul>
+			</li>
+			<li><a href="solutions.html">Solutions</a>
+				<ul>
+					<li><a href="vProspect.html">vProspect 2.0</a></li>
+					<li><a href="vConvert.html">vConvert 2.0</a></li>
+					<li><a href="vRetain.html">vRetain 1.0</a></li>
+				</ul>
+			</li>
+			<li><a href="support.html">Support</a></li>
+			<li><a href="contactus.html">Contact Us</a></li>
+		</ul>
+	</main> -->
+
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#menu').menu({
+        icons: { submenu: 'ui-icon-triangle-1-e' }
+      });
+    }); //? end ready
+  </script>
+</body>
+</html>

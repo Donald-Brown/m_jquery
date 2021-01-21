@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Slider</title>
+</head>
+<body>
+  <main>
+    <div id="size">
+      <label>Company Size: </label>
+      <input type="text" id="employees" disabled>
+    </div>
+    <div id="slider" style="width: 100px;"></div>
+  </main>
+
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#slider').slider({
+        value: 50,
+        min: 1, 
+        max: 100,
+        slide: function(e, ui) {
+          $('#employees').val(ui.value);
+        }
+      });
+      $('#employees').val(50);
+    }); //? end ready
+  </script>
+</body>
+</html>

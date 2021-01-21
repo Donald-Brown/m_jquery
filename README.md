@@ -68,3 +68,18 @@
 - How to build and use a jQuery UI download
 - how to use widgets
 - a page that uses jQuery UI
+
+## Chapter 11 - How to use jQuery UI interactions and effects
+- How to use interactions
+  a. intro to interactions
+  b. draggable and droppable
+  c. resizable
+  d. selectable
+  e. sortable
+- how to use effects
+  a. intro
+  b. individual effects 
+  c. color transitions
+  d. class transitions
+  page cut off
+
