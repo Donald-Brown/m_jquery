@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Color Transitions</title>
+</head>
+<body>
+  <main>
+    <h2>Customer Experience Survey</h2>
+    <p>Please help us improve our service by sending us your comments:</p>
+    <textarea id="comments" style="width: 350px; height: 125px;"></textarea><br>
+    <a href="#" id="grow_textarea">Increase text area</a>
+  </main>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#grow_textarea').click(function() {
+        $('#comments').animate({
+          width: 500,
+          height: 200,
+          backgroundColor: '#ededed',
+          color: 'green'
+        }, 1000); //? end animate
+      }); //? end click
+    }); //? end ready
+  </script>
+</body>
+</html>

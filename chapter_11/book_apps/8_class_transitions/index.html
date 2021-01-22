@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .small { font-size: 75%; }
+      .medium { font-size: 100%; }
+      .large { font-size: 120%; }
+      .x_large { font-size: 150%; }
+    </style>
+    <title>Class transtions</title>
+  </head>
+  <body>
+    <main>
+      <p>Change text size:
+        <input type="button" id="button1" value="Medium">
+        <input type="button" id="button2" value="Large">
+        <input type="button" id="button3" value="X-Large">
+      </p>
+      <h2>Welcome</h2>
+      <p id="p1">
+        With innovative approaches and advanced methodologies, Vecta Corportation provides scalable business solutions to help companies achieve success through revenue increase, cost managment, and user satisfaction.
+      </p>
+    </main>
+
+    <script src="../../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../../js/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $('#button1, #button2, #button3').button();
+        $('#p1').addClass('small');
+        $('#button1').click(function() { setSize('medium'); });
+        $('#button2').click(function() { setSize('large'); });
+        $('#button3').click(function() { setSize('x_large'); });
+
+        function setSize(size) {
+          $('#p1').removeClass(); // jQuery removes all classes
+          $('#p1').addClass(size, 1000);
+        }
+      }); //? end ready
+    </script>
+  </body>
+</html>

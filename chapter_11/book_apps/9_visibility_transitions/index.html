@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Visibility Transitions</title>
+</head>
+<body>
+  <header></header>
+			
+	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="aboutus.html">About Us</a></li>
+      <li><a href="#" id="solutions">Solutions</a></li>
+      <div id="solutions_menu">
+        <a href="solutions.html#vprospect">vProspect 2.0</a>
+        <a href="solutions.html#vconvert">vConvert 2.0</a>
+        <a href="solutions.html#vretain">vRetain 1.0</a>
+      </div>
+			<li><a href="support.html">Support</a></li>
+			<li><a href="contactus.html">Contact Us</a></li>
+		</ul>
+	</nav>
+
+  <main>
+    <fieldset>
+      <legend>Contact a Sales Rep.</legend>
+      <form action="response.html" id="contactus_form" name="contactus_form" method="get">
+
+        <label>Name:</label>
+        <input name="name" type="text" id="name" maxlength="30"><br>
+
+        <label>Company Name:</label>
+        <input name="companyname" type="text" id="companyname" maxlength="30"><br>
+
+        <label>Phone Number:</label>
+        <input name="phonenumber" type="text" id="phonenumber" maxlength="10"><br>
+
+        <label>Email:</label>
+        <input name="email" id="email" type="text" maxlength="10"><br>
+
+        <label>Product Interest</label>
+        <select name="product" id="product" size="3" multiple>
+          <option value="vProspect 2.0">vProspect 2.0</option>
+          <option value="vConvert 2.0">vConvert 2.0</option>
+          <option value="vRetain 1.0">vRetain 1.0</option>
+        </select>
+
+        <label>Current Infrastructure:</label>
+        <select name="infrastructure" id="infrastructure">
+          <option value="Mac">Mac</option>
+          <option value="Linux">Linux</option>
+          <option value="Unix">Unix</option>         
+          <option value="Windows">Windows</option>
+        </select><br>
+
+        <label>Company Size:</label>
+        <select name="companysize" id="companysize">
+          <option value="1-10">1-10 Employees</option>
+          <option value="11-50">11-50 Employees</option>
+          <option value="51-100">51-100 Employees</option>         
+          <option value="101+">101+ Employees</option>
+        </select><br>
+
+        <label>How did you hear about us?</label>
+        <select name="hearaboutus" id="hearaboutus">
+          <option value="Ad">Print Ad / Web Ad</option>
+          <option value="Word of Mouth">Word of Mouth</option>
+          <option value="Radio">Radio Ad</option>         
+          <option value="TV Commercial">TV Commercial</option>
+        </select><br>
+
+
+        <p>Questions / Comments:</p>
+        <textarea name="questions" id="questions" rows="3"></textarea>    
+        <br>
+
+        <br>
+        <input type="submit" id="submitbutton">
+      </form>
+    </fieldset>
+  </main>
+  <footer></footer>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+
+    }); //? end ready
+  </script>
+</body>
+</html>
