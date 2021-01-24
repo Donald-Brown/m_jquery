@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Animation</title>
+</head>
+<body>
+  <main id="faqs">
+		<h1>jQuery FAQs</h1>
+		<h2><a href="#">What is jQuery?</a></h2>
+		<div>
+			<p>
+        jQuery is a library of the JavaScript functions that you're most likely to need as you develop websites.
+			</p>
+		</div>
+		<h2><a href="#">Why is jQuery becoming so popular?</a></h2>
+		<div>
+			<p>Three reasons:</p>
+			<ul>
+				<li>It's free.</li>
+				<li>It lets you get more done in less time.</li>
+				<li>All of its functions are cross-browser compatible.</li>
+			</ul>
+		</div>
+		<h2><a href="#">Which is harder to learn: jQuery or JavaScript?</a></h2>
+		<div>
+			<p>
+        For most functions, jQuery is significantly easier to learn and use than JavaScript. But remember that jQuery is JavaScript.
+			</p>
+		</div>
+	</main>
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#faqs h1').animate({
+        color: '#fff',
+        backgroundColor: 'navy',
+        fontSize: "650%",
+        opacity: 1,
+        left: '+=275'
+      }, 2000).animate({
+        color: 'navy',
+        backgroundColor: '#fff',
+        fontSize: "175%",
+        left: '-=275'
+      }, 1000); //? end animates
+
+      $('#faqs h2').click(function() {
+        $(this).toggleClass('minus');
+        if ($(this).attr('class') !== 'minus') {
+          $(this).next().hide('puff', 1500);
+        } else {
+          $(this).next().show('bounce', 500);
+        }
+      }); //? end click
+    }); //? end ready
+  </script>
+</body>
+</html>

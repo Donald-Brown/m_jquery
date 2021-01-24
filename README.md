@@ -83,3 +83,8 @@
   d. class transitions
   page cut off
 
+## Chapter 12 - How to use Ajax and JSON
+- intro to Ajax
+- How to use jQuery shorthand for Ajax
+- How to use the $.ajax method for working with Ajax
+- How to use Ajax with Flickr

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../ui_custom1/jquery-ui.min.css">
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .ui-state-highlight {
+      height: 1.5em;
+    }
+  </style>
+  <title>Sortable List</title>
+</head>
+<body>
+  <main>
+    <h2>Rank our Customer Support Products</h2>
+    <h3>Drag up or down to rank</h3>
+    <ul id="vsupport">
+      <li class="ui-state-default sortable">Blog / How-To Articles</li>
+      <li class="ui-state-default sortable">Discussion Forum</li>
+      <li class="ui-state-default sortable">Knowledge Base</li>
+      <li class="ui-state-default sortable">Phone Support</li>
+      <li class="ui-state-default sortable">Wiki Support</li>
+      <li class="ui-state-default">Other</li>
+    </ul>
+    <br>
+    <input type="submit" id="submit_button" value="Submit">
+  </main>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="../../../js/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $('#submit_button').button();
+      $('#vsupport').sortable({
+        placeholder: 'ui-state-highlight',
+        // containment: '#vsupport'
+        items: '.sortable',
+        revert: true,
+        start: (e, ui) => {
+          ui.item.removeClass('ui-state-default');
+          ui.item.addClass('ui-state-active');
+        },
+        stop: (e, ui) => {
+          ui.item.removeClass('ui-state-active');
+          ui.item.addClass('ui-state-default');
+        }
+      }); //? end sortable
+    }); //? end ready
+  </script>
+</body>
+</html>

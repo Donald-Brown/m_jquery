@@ -26,6 +26,8 @@
 	</nav>
 
   <main>
+    <h2>Contact Us</h2>
+
     <fieldset>
       <legend>Contact a Sales Rep.</legend>
       <form action="response.html" id="contactus_form" name="contactus_form" method="get">
@@ -89,7 +91,9 @@
   <script src="../../../js/jquery-ui.min.js"></script>
   <script>
     $(function() {
-
+      $('#solutions').click(function() {
+        $('#solutions_menu').toggle('blind', 500);
+      }); //? end click
     }); //? end ready
   </script>
 </body>
