@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Flickr with Descriptions</title>
+  </head>
+  <body>
+    <header></header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>The Vecta Corp. Management Team</h2>
+
+      <div id="team"></div>
+    </main>
+
+    <footer></footer>
+
+    <script src="../../../../js/jquery-3.5.1.min.js"></script>
+    <script>
+      $(function () {
+        const url =
+          "http://api.flickr.com/services/feeds/photos_public.gne?id=82407828@N07&format=json&jsoncallback=?&tags=vectacorp";
+
+        $.getJSON(url, function (data) {
+          let html = "";
+
+          $.each(data.items, function (i, item) {
+            html += `
+            <h3>${item.title}</h3>
+            ${item.description}
+          `;
+
+            
+            //* remove the first paragraph of the description
+            html = html.replace(
+              `<p><a href="https://www.flickr.com/people/82407828@N07/">zakruvalcaba</a> posted a photo:</p>`,
+              ""
+            );
+
+          }); //? end each
+          $("#team").html(html);
+        }); //? end getJSON
+      }); //? end ready
+    </script>
+  </body>
+</html>

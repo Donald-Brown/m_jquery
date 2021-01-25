@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <style>
+    p {
+      margin-bottom: 0.3em;
+      text-align: center;
+    }
+
+    h2 {text-align: center; }
+
+    .photo_item {
+      margin-bottom: 2em;
+      border: 1px solid #000;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .photo_item p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    img {
+      margin-bottom: 1em;
+      position: relative;
+    }
+
+  </style>
+  <title>Messing with Flickr</title>
+</head>
+<body>
+  <main>
+    <h1>Yosemite Waterfalls</h1>
+    <div id="photos"></div>
+
+  </main>
+
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script>
+    $(function() {
+      const url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&tags=waterfall,yosemite";
+
+      $.getJSON(url, function(data) {
+        let html = '';
+        $.each(data.items, function(i, item) {
+          html += 
+          `
+          <div class="photo_item">
+            <h2>${item.title}</h2>
+            <p>${item.date_taken}</p>
+            ${item.description}
+          </div>
+          `;
+        }); //? end each
+        $('#photos').html(html);
+      }); //? end getJSON
+    }); //? end ready
+  </script>
+</body>
+</html>

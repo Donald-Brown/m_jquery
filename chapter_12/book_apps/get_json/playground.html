@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playing with JSON data</title>
+</head>
+<body>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script>
+    $(function() {
+      $.getJSON('https://api.nasa.gov/planetary/apod?api_key=o1LBKnqER92QVjhPHCQrO0kQgpOdiCGdcKPSQq3r', function(data) {
+       console.log(data);
+      }); //? end getJSON
+    }); //?end ready
+  </script>
+</body>
+</html>

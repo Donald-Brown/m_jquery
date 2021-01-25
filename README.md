@@ -88,3 +88,9 @@
 - How to use jQuery shorthand for Ajax
 - How to use the $.ajax method for working with Ajax
 - How to use Ajax with Flickr
+
+## Chapter 13 - How to use the API for Google Maps
+- intro to Google maps
+- How to display markers
+- How to display messages
+- How to display driving directions on a web page

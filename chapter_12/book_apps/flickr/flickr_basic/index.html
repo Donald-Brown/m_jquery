@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>Flickr Basics</title>
+</head>
+<body>
+  <main>
+    <h1>Yosemite Waterfalls</h1>
+    <div id="photos"></div>
+  </main>
+
+  <script src="../../../../js/jquery-3.5.1.min.js"></script>
+  <script>
+    $(function() {
+      let url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&tags=waterfall,yosemite'";
+
+      $.getJSON(url, function(data) {
+        let html = '';
+        $.each(data.items, function(i, item) {
+          html += 
+          `
+            <h2>${item.title}</h2>
+            <img src=${item.media.m}>
+            <p></p>
+          `;
+        }); //? end each
+        $('#photos').html(html);
+      }); //? end getJSON
+    }); //? end ready
+  </script>
+</body>
+</html>

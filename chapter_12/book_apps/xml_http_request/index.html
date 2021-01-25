@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>XML HTTP Request</title>
+</head>
+<body>
+  <header></header>
+    
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <h2>The Vecta Corp. Management Team</h2>
+
+    <div id="team"></div>
+  </main>
+  
+  <footer></footer>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script>
+    $(function() {
+    //* the ready method is the only jQuery used here 
+      const xhr = new XMLHttpRequest();
+      setTimeout(function() {
+        xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const xmlDoc = xhr.responseXML;
+          let team = xmlDoc.getElementsByTagName('teammember');
+          let html = '';
+          for (let i = 0; i < team.length; i++) {
+            html += 
+            `
+            ${xmlDoc.getElementsByTagName('name')[i].childNodes[0].nodeValue}<br>
+            ${xmlDoc.getElementsByTagName('title')[i].childNodes[0].nodeValue}<br>
+            ${xmlDoc.getElementsByTagName('bio')[i].childNodes[0].nodeValue}<br><br>
+            `
+            
+          }
+          document.getElementById('team').innerHTML = html;
+        }
+      }
+
+      xhr.open('GET', 'team.xml', true);
+      xhr.send();
+      }, 2000);
+
+      
+      // xhr.onreadystatechange = function() {
+      //   if (xhr.readyState === 4 && xhr.status === 200) {
+      //     const xmlDoc = xhr.responseXML;
+      //     let team = xmlDoc.getElementsByTagName('teammember');
+      //     let html = '';
+      //     for (let i = 0; i < team.length; i++) {
+      //       html += 
+      //       `
+      //       ${xmlDoc.getElementsByTagName('name')[i].childNodes[0].nodeValue}<br>
+      //       ${xmlDoc.getElementsByTagName('title')[i].childNodes[0].nodeValue}<br>
+      //       ${xmlDoc.getElementsByTagName('bio')[i].childNodes[0].nodeValue}<br><br>
+      //       `
+            
+      //     }
+      //     document.getElementById('team').innerHTML = html;
+      //   }
+      // }
+
+      // xhr.open('GET', 'team.xml', true);
+      // xhr.send();
+    }); //? end ready
+  </script>
+</body>
+</html>
