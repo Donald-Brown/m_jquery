@@ -102,3 +102,10 @@ unable to complete this chapter without a Google API key
 - How to use the web storage API
 - How to use the web workers API
 - An app using web workers and web storage 
+
+## Chapter 15 - Get off to a fast start with jQuery Mobile
+- How to work with mobile devices
+- How to get started with jQuery Mobile
+- How to format content with jQuery Mobile
+- A mobile website for Vecta Corp
+

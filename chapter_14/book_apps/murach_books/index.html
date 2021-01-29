@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/slideshow.css">
+  <title>Find a Murach Book</title>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="images/logo.jpg" alt=""></a>
+  </header>
+  <main>
+    <div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="3000" data-cycle-speed="400">
+      <div class="cycle-prev"></div>
+      <div class="cycle-next"></div>
+      <img src="images/image1.png" alt="">
+      <img src="images/image2.png" alt="">
+      <img src="images/image3.png" alt="">
+      <img src="images/image4.png" alt="">
+    </div>
+
+    <h1>Select a category</h1>
+    <ul id="categories"></ul>
+  </main>
+  <footer>
+    <p>&copy; 2016 Mike Murach &amp; Associates, Inc.</p>
+  </footer>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="http://malsup.github.io/jquery.cycle2.js"></script>
+  <script>
+    $(function() {
+      // create a web worker to retrieve JSON data in the background
+      let worker = new Worker('getJSON.js');
+      worker.postMessage('data/books.json');
+      worker.onmessage = function(e) {
+        // store the JSON data in session storage for later use
+        sessionStorage.books = JSON.stringify(e.data);
+      }
+
+      // get JSON data from the categories.js file in the foreground
+      $.getJSON('data/categories.json', function(data) {
+        $('#categories').html('');
+        $.each(data, function() {
+          $.each(this, function(key, value) {
+            $('#categories').append(`
+              <li>
+                <a href="books.html" id="${value.categoryid}">${value.category}</a>
+              </li>
+            `);
+          }); //? end each
+        }); //? end each
+      }); //? end getJSON
+
+      // handle the click event for the category
+      $('#categories').on('click', 'a', function() {
+        // retieve the id for the selected category and save it in session storage
+        let categoryID = $(this).attr('id');
+        sessionStorage.categoryID = categoryID;
+      }); //? end on
+    }); //? end ready
+  </script>
+</body>
+</html>

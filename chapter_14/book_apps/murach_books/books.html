@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/slideshow.css">
+  <title>Find a Murach Book</title>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="images/logo.jpg" alt=""></a>
+  </header>
+  <main>
+    <div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="3000" data-cycle-speed="400">
+      <div class="cycle-prev"></div>
+      <div class="cycle-next"></div>
+      <img src="images/image1.png" alt="">
+      <img src="images/image2.png" alt="">
+      <img src="images/image3.png" alt="">
+      <img src="images/image4.png" alt="">
+    </div>
+
+    <h1>Select a book</h1>
+    <ul id="books"></ul>
+    <p><a href="index.html">Return to category list</a></p>
+  </main>
+  <footer>
+    <p>&copy; 2016 Mike Murach &amp; Associates, Inc.</p>
+  </footer>
+
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="http://malsup.github.io/jquery.cycle2.js"></script>
+  <script>
+    $(function() {
+      // retrieve the category id from session storage
+      let categoryID = sessionStorage.categoryID;
+
+      // retrieve the book data from session storage
+      let data = JSON.parse(sessionStorage.books);
+
+      // loop through the data and display the book titles
+      $.each(data, function() {
+        $.each(this, function(key, value) {
+          if (value.categoryid == categoryID) {
+            $('#books').append(`<li><a href="book.html" id="${value.bookid}">${value.title}</a></li>`);
+          }
+        }); //? end each  
+      }); //? end each
+
+      // handle the click event of a book
+      $('#books').on('click', 'a', function() {
+        // retrieve the id for the selected book and save it in session storage
+        let bookID = $(this).attr('id');
+        sessionStorage.bookID = bookID;
+      }); //? end on
+    }); //? end ready
+  </script>
+</body>
+</html>

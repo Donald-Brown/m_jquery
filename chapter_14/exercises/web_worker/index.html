@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0 20px;
+      }
+
+      input {
+        width: 50px;
+      }
+    </style>
+    <title>Calculate Fractional</title>
+  </head>
+  <body>
+    <h2>Calculate Fractional</h2>
+    Enter a number: <input type="text" id="number" name="number" />
+    <button id="calculate">Calculate</button>
+    <p id="result"></p>
+
+    <script src="../../../js/jquery-3.5.1.min.js"></script>
+    <script>
+      $(function () {
+        let worker;
+
+        $("#calculate").click(function () {
+          let number = parseInt($("#number").val());
+          $("#result").html("");
+          worker = new Worker('calculateFractional.js');
+          worker.postMessage(number);
+          worker.onmessage = function(e) {
+            $("#result").html(`
+              The factorial of ${number} is ${e.data}.
+            `);
+          }
+        }); //? end click
+      }); //? end ready
+    </script>
+  </body>
+</html>

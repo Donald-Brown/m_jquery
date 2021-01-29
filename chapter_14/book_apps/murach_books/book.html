@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/slideshow.css">
+  <title>Find a Murach Book</title>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="images/logo.jpg" alt=""></a>
+  </header>
+  <main>
+    <div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="3000" data-cycle-speed="400">
+      <div class="cycle-prev"></div>
+      <div class="cycle-next"></div>
+      <img src="images/image1.png" alt="">
+      <img src="images/image2.png" alt="">
+      <img src="images/image3.png" alt="">
+      <img src="images/image4.png" alt="">
+    </div>
+
+    <h1></h1>
+    <div id="image"></div>
+    <p id="details"></p>
+    <p id="description"></p>
+    <p></p>
+    <p><a href="books.html">Return to book list</a></p>
+  </main>
+  <footer>
+    <p>&copy; 2016 Mike Murach &amp; Associates, Inc.</p>
+  </footer>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script src="http://malsup.github.io/jquery.cycle2.js"></script>
+  <script>
+    $(function() {
+      // retrieve the book id from session storage
+      let bookID = sessionStorage.bookID;
+
+      // retrieve the book data from session Storage
+      let data = JSON.parse(sessionStorage.books);
+
+      // loop through the data and display the book details
+      $.each(data, function() {
+        $.each(this, function(key, value) {
+          if (value.bookid == bookID) {
+            $('h1').html(value.title);
+            $('#image').html(`<img src=images/${value.image}>`);
+            $('#details').html(`By: ${value.author}<br>
+                                ISBN: ${value.isbn}<br>
+                                Chapter Count: ${value.chapter_count}<br>
+                                Page Count: ${value.page_count}
+                              `);
+            $('#description').html(value.description);
+          }
+        }); //? end each
+      }); //? end each
+    }); //? end ready
+  </script>
+</body>
+</html>

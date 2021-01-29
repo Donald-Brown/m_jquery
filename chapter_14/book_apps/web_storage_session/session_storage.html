@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { padding: 10px; }
+  </style>
+  <title>Session Storage</title>
+</head>
+<body>
+  <p id="hits"></p>
+  
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+  <script>
+    $(function() {
+      if (sessionStorage.hits) {
+        sessionStorage.hits = parseInt(sessionStorage.hits) + 1;
+      } else {
+        sessionStorage.hits = 1;
+      }
+      $('#hits').html(`You have visited this page ${sessionStorage.hits} ${(sessionStorage.hits <= 1 ? 'time' : 'times')}`);
+    }); //? end ready
+  </script>
+</body>
+</html>
