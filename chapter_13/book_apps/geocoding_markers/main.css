@@ -1,0 +1,9 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
+#map {
+  width: 500px;
+  height: 400px;
+}

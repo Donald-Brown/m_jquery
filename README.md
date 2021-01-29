@@ -90,7 +90,15 @@
 - How to use Ajax with Flickr
 
 ## Chapter 13 - How to use the API for Google Maps
+unable to complete this chapter without a Google API key
 - intro to Google maps
 - How to display markers
 - How to display messages
 - How to display driving directions on a web page
+
+## Chapter 14 - How to use the HTML5 APIs
+- intro to html5 APIs
+- How to use the geolocation API
+- How to use the web storage API
+- How to use the web workers API
+- An app using web workers and web storage 
